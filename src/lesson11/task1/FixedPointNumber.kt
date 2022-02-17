@@ -21,21 +21,19 @@ import kotlin.math.sign
  */
 class FixedPointNumber(val int: Int, val frac: String) : Comparable<FixedPointNumber> {
     companion object {
-        fun getIntFromString(s: String): Int {
-            return if (s.contains(".")) {
+        fun getIntFromString(s: String): Int =
+            if (s.contains(".")) {
                 s.split(".")[0].toInt()
             } else {
                 s.toInt()
             }
-        }
 
-        fun getFracFromString(s: String): String {
-            return if (s.contains(".")) {
+        fun getFracFromString(s: String): String =
+            if (s.contains(".")) {
                 s.split(".")[1]
             } else {
                 ""
             }
-        }
     }
 
     /**
@@ -62,8 +60,8 @@ class FixedPointNumber(val int: Int, val frac: String) : Comparable<FixedPointNu
      * Конструктор из вещественного числа с заданной точностью
      */
     constructor(d: Double, p: Int) : this(
-        d.toString().split(".")[0].toInt(),
-        d.toString().split(".")[1].substring(0, p)
+        getIntFromString(d.toString()),
+        getFracFromString(d.toString()).substring(0, p)
     )
 
     /**
