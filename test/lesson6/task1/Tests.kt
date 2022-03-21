@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.Tag
 import org.junit.jupiter.api.Test
 
+
 class Tests {
     @Test
     @Tag("Example")
@@ -115,6 +116,31 @@ class Tests {
         assertEquals("", mostExpensive(""))
         assertEquals("Курица", mostExpensive("Хлеб 39.9; Молоко 62.5; Курица 184.0; Конфеты 89.9"))
         assertEquals("Вино", mostExpensive("Вино 255.0"))
+    }
+
+    @Test
+    @Tag("6b")
+    fun mostExpensiveFormat() {
+        assertEquals("", mostExpensive("4444 -- 909"))
+        assertEquals("", mostExpensive("255.0 Вино"))
+        assertEquals("", mostExpensive("Вино Вино"))
+        assertEquals("", mostExpensive("Хлеб39.9Молоко 62.5; Курица 184.0 -- Конфеты 89.9"))
+
+    }
+
+    @Test
+    fun mostExpensivePrecision() {
+        val firstItem = "Choco"
+        val secondItem = "Pain"
+        var price = 49.0
+        val diff = (1..9).random()
+        var expression = "$firstItem $price; $secondItem ${price + diff}"
+        assertEquals(secondItem, mostExpensive(expression))
+
+        price = 0.0
+        expression = "$firstItem $price; $secondItem ${price + diff}"
+        assertEquals(secondItem, mostExpensive(expression))
+
     }
 
     @Test

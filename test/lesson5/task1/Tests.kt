@@ -3,6 +3,7 @@ package lesson5.task1
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Tag
 import org.junit.jupiter.api.Test
+import kotlin.random.Random
 
 class Tests {
     @Test
@@ -316,6 +317,39 @@ class Tests {
             Pair(-1, -1),
             findSumOfTwo(listOf(1, 2, 3), 6)
         )
+
+        for (i in 0..3) findSumOfTwoFib()
+    }
+
+    private fun fibonacci(n: Int): Int = if (n < 2) n else fibonacci(n - 1) + fibonacci(n - 2)
+
+    private fun findSumOfTwoFib() {
+        val list = mutableListOf<Int>()
+        for (i in 0..9)
+            list.add(i)
+
+        val fib = Random.nextInt(10, 15)
+        val number = fibonacci(fib)
+        val first = fibonacci(fib - 2)
+        val second = fibonacci(fib - 1)
+
+        var firstIndex = (0..9).random()
+        list[firstIndex] = first
+
+        var secondIndex = (0..9).random()
+        list[secondIndex] = second
+
+        if (firstIndex > secondIndex) {
+            val a = firstIndex
+            firstIndex = secondIndex
+            secondIndex = a
+        }
+
+        assertEquals(
+            Pair(firstIndex, secondIndex),
+            findSumOfTwo(list, number)
+        )
+
     }
 
     @Test

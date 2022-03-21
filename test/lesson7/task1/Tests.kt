@@ -3,6 +3,7 @@ package lesson7.task1
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Tag
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 import java.io.File
 
 class Tests {
@@ -376,6 +377,43 @@ Basic, Ruby, Swift.
              """
         )
 
+        test(
+            0,
+            6,
+            """
+                 0
+                *6
+                --
+                 0
+                --
+                 0
+             """
+        )
+
+        test(
+            0,
+            0,
+            """
+                 0
+                *0
+                --
+                 0
+                --
+                 0
+             """
+        )
+
+        assertThrows<IllegalArgumentException> {
+            // negative numbers
+            printMultiplicationProcess(-80, 10, "temp.txt")
+            File("temp.txt").delete()
+        }
+
+        assertThrows<IllegalArgumentException> {
+            //overflow
+            printMultiplicationProcess(Int.MAX_VALUE, 4, "temp.txt")
+            File("temp.txt").delete()
+        }
     }
 
     @Test
