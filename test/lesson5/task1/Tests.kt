@@ -317,13 +317,12 @@ class Tests {
             Pair(-1, -1),
             findSumOfTwo(listOf(1, 2, 3), 6)
         )
-
-        for (i in 0..3) findSumOfTwoFib()
     }
 
     private fun fibonacci(n: Int): Int = if (n < 2) n else fibonacci(n - 1) + fibonacci(n - 2)
 
-    private fun findSumOfTwoFib() {
+    @Test
+    fun findSumOfTwoFib() {
         val list = mutableListOf<Int>()
         for (i in 0..9)
             list.add(i)

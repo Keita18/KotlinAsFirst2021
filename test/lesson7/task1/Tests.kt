@@ -403,17 +403,17 @@ Basic, Ruby, Swift.
              """
         )
 
-        assertThrows<IllegalArgumentException> {
-            // negative numbers
-            printMultiplicationProcess(-80, 10, "temp.txt")
-            File("temp.txt").delete()
-        }
-
-        assertThrows<IllegalArgumentException> {
-            //overflow
-            printMultiplicationProcess(Int.MAX_VALUE, 4, "temp.txt")
-            File("temp.txt").delete()
-        }
+//        assertThrows<IllegalArgumentException> {
+//            // negative numbers
+//            printMultiplicationProcess(-80, 10, "temp.txt")
+//            File("temp.txt").delete()
+//        }
+//
+//        assertThrows<IllegalArgumentException> {
+//            //overflow
+//            printMultiplicationProcess(Int.MAX_VALUE, 4, "temp.txt")
+//            File("temp.txt").delete()
+//        }
     }
 
     @Test
