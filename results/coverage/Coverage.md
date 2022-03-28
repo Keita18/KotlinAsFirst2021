@@ -8,7 +8,7 @@ the number of methods and lines of code executed seems low, this is due to the f
 test was performed on only one exercise per class (those written by myself) while the classes 
 contain several others exercises
 
-###the code that has been executed or covered by tests: 
+##the code that has been executed or covered by tests: 
  we can see that all lines in methods has been covered
  ![](../img/findSumOfTwoCoverage.jpg)
  ![](../img/mostExpensiveCoverage.jpg)
